@@ -15,4 +15,4 @@ ind_bill = int(bill) / int(people)
 tip_calculated = int(bill) / int(people) * (int(tip) * .01)
 ind_total = round((ind_bill + tip_calculated), 2)
 
-print(ind_total)
+print(f"Each person should pay: {ind_total}")
