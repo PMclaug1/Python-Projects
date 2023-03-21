@@ -25,19 +25,27 @@ print("Your mission is to find the treasure.")
 
 #Write your code below this line 👇
 crossroads = input("You arrive at a cross road. Where do you want to go? Type left or right. ")
-if (crossroads.lower() == "right"):
-    print("You are eaten by a bear. Game over.")
-else:
+
+if (crossroads.lower() == "left"):
     lake = input("You come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim accross. ")
 
-if(lake.lower() == "swim"):
-    print("You are swallowed by the Loch Ness monster. Game over.")
+    if(lake.lower() == "wait"):
+        door = input("You arrive at the island unharmed. There is a house with three doors. One red, one yellow and one blue. Which color do you choose? ")
+            
+        if(door.lower() == "yellow"):
+            print("You enter a room overflowing with treasure. You have succeeded.")
+        elif(door.lower() == "blue"):
+            print("You step into a cold room and grab a jeweled chalice from a stone altar in the center of the room. You are instantly frozen solid. Game over.")
+        elif(door.lower() == "red"):
+            print("You step into a room filled with treasure. The stone floor creaks under your feet and you hear a hissing sound. The room ignites with flame and you perish. Game over.")
+        else:
+            print("You attempt to enter an unkown door. You are teleported into space and die. Game over")
+    
+    elif(lake.lower() == "swim"):
+        print("You are swallowed by the Loch Ness monster. Game over.")
+    else:
+        print("You try to find another way, but are accosted by bandits and captured. Game over.")
+elif(crossroads.lower() == "right"):
+    print("You are eaten by a bear. Game over")
 else:
-    door = input("You arrive at the island unharmed. There is a house with three doors. One red, one yellow and one blue. Which color do you choose? ")
-
-if(door.lower() == "yellow"):
-    print("You enter a room overflowing with treasure. You have succeeded.")
-elif(door.lower() == "blue"):
-    print("You step into a cold room and grab a jeweled chalice from a stone altar in the center of the room. You are instantly frozen solid. Game over.")
-else:
-    print("You step into a room filled with treasure. The stone floor creaks under your feet and you hear a hissing sound. The room ignites with flame and you perish. Game over.")
+    print("You forge your own path, but trip and twist your ankle. You return home dejected.")
