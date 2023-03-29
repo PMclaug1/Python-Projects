@@ -9,14 +9,14 @@ class Book:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         # list of the authors who has favorited this book
-        self.authors_who_favorited = []
+        self.favorite_authors = []
 
 
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM books;"
         books = []
-        results = connectToMySQL('books').query_db(query)
+        results = connectToMySQL('python_books').query_db(query)
         for row in results:
             books.append(cls(row))
         return books
@@ -24,4 +24,41 @@ class Book:
     @classmethod
     def save(cls,data):
         query = "INSERT INTO books (title,num_of_pages) VALUES (%(title)s,%(num_of_pages)s);"
-        return connectToMySQL('books').query_db(query,data)
+        return connectToMySQL('python_books').query_db(query,data)
+    
+    @classmethod
+    def unfavorited_books(cls,data):
+        query = "SELECT * FROM books WHERE books.id NOT IN ( SELECT book_id FROM favorites WHERE author_id = %(id)s );"
+        books = []
+        results = connectToMySQL('python_books').query_db(query,data)
+        for row in results:
+            books.append(cls(row))
+        return books
+
+    @classmethod
+    def add_favorite(cls,data):
+        query = "INSERT INTO favorites (author_id,book_id) VALUES (%(author_id)s,%(book_id)s);"
+        return connectToMySQL('python_books').query_db(query,data);
+
+
+    @classmethod
+    def get_by_id(cls,data):
+        query = "SELECT * FROM books LEFT JOIN favorites ON books.id = favorites.book_id LEFT JOIN authors ON authors.id = favorites.author_id WHERE books.id = %(id)s;"
+        results = connectToMySQL('python_books').query_db(query,data)
+
+        
+        book = cls(results[0])
+        
+        for row in results:
+            # if there are no favorites
+            if row['authors.id'] == None:
+                break
+            # common column names come back with specific tables attached
+            data = {
+                "id": row['authors.id'],
+                "name": row['name'],
+                "created_at": row['authors.created_at'],
+                "updated_at": row['authors.updated_at']
+            }
+            book.favorite_authors.append(author_model.Author(data))
+        return book
