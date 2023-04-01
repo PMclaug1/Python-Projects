@@ -6,3 +6,8 @@ book_club/flask_app/__pycache__/__init__.cpython-310.pyc
 book_club/flask_app/config/mysqlconnection.py
 book_club/flask_app/config/__pycache__/mysqlconnection.cpython-310.pyc
 book_club.zip
+weather_app/flask_app/Pipfile.lock
+weather_app/flask_app/Pipfile
+weather_app/Pipfile
+weather_app/Pipfile.lock
+weather_app.zip

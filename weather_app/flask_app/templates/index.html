@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <form id="searchForm" onsubmit="getCurrent(event)">
+        <h2>Enter City or Zip Code</h2>
+        <input type="text" name="currentWeather" id="currentWeather">
+        <input type="text" value="Search">
+    </form>
+    <div id="weatherResult"></div>
+    <script src="weather_app\flask_app\static\script.js"></script>
+</body>
+</html>
