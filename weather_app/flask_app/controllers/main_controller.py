@@ -1,11 +1,11 @@
 import json
 from flask_app import app
 from flask import redirect, render_template
-import os
+from flask import Flask
 
 
 
-@app.route('/')
-def index():
-   return render_template('index.html')
+@app.route('/members')
+def members():
+   return {"members": ["Member1", "Member2", "Member3"]}
 
