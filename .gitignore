@@ -11,3 +11,4 @@ weather_app/flask_app/Pipfile
 weather_app/Pipfile
 weather_app/Pipfile.lock
 weather_app.zip
+weather_app/client/src.zip
