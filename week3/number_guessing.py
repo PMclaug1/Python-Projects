@@ -9,37 +9,36 @@ logo = """
         \/            \/    \/     \/                \/            \/     \/     \/     \/       
 """
 
-def number_guesser():
-    target = random.randint(0,100)
-    print(logo)
-    print("Welcome to the Number Guessing Game.")
-    print("I'm thinking of a number between 1 and 100.")
-    difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
-    def guess_a_number():
-        guess = input("Make a guess. ")
-        while guesses > 0:
-            if guess > target:
-                print("Too high, guess again.")
-                print(f"You have {guesses} attempts to guess the number.")
-                guesses = guesses - 1
-                guess_a_number()
-            elif guess < target:
-                print("Too low, guess again.")
-                print(f"You have {guesses} attempts to guess the number.")
-                guesses = guesses - 1
-                guess_a_number()
-            else:
-                print("You win!")
-                break
+
+target = random.randint(0,100)
+print(logo)
+print("Welcome to the Number Guessing Game.")
+print("I'm thinking of a number between 1 and 100.")
+difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
+
+def guess_a_number():
     if difficulty == 'easy':
         guesses = 10
         print(f"You have {guesses} attempts to guess the number.")
-        guess_a_number()
     elif difficulty == 'hard':
         guesses = 5
         print(f"You have {guesses} attempts to guess the number.")
-        guess_a_number()
     else:
         print("Invalid selection.")
+    
+    while guesses > 0:
+        guess = int(input("Make a guess. "))
+        if guess > target:
+            print("Too high, guess again.")
+            guesses -= 1
+            print(f"You have {guesses} attempts to guess the number.") 
+        elif guess < target:
+            print("Too low, guess again.")
+            guesses -= 1
+            print(f"You have {guesses} attempts to guess the number.")
+        else:
+            print("You win!")
+            break
 
-number_guesser()
+    
+guess_a_number()
