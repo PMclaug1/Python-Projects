@@ -11,21 +11,22 @@ logo = """
 
 
 target = random.randint(0,100)
+EASY_GUESSES = 10
+HARD_GUESSES = 5
 print(logo)
 print("Welcome to the Number Guessing Game.")
 print("I'm thinking of a number between 1 and 100.")
 difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
-
-def guess_a_number():
+def set_difficulty():
     if difficulty == 'easy':
-        guesses = 10
-        print(f"You have {guesses} attempts to guess the number.")
+        return EASY_GUESSES
     elif difficulty == 'hard':
-        guesses = 5
-        print(f"You have {guesses} attempts to guess the number.")
+        return HARD_GUESSES
     else:
         print("Invalid selection.")
-    
+
+def guess_a_number():
+    guesses = set_difficulty()    
     while guesses > 0:
         guess = int(input("Make a guess. "))
         if guess > target:
