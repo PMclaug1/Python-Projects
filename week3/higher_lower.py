@@ -27,19 +27,21 @@ def play_game():
         choice = input("Who has more followers? Type 'A' or 'B'? ").upper()
     
         if choice == 'B':
-            print(f"{b_comparison['follower_count']} > {a_comparison['follower_count']}")
             if b_comparison['follower_count'] > a_comparison['follower_count']:
+                print(f"{b_comparison['follower_count']} > {a_comparison['follower_count']}")
                 player_score += 1
                 print(f"You're right! Current score: {player_score}.")
             else:
+                print(f"{b_comparison['follower_count']} < {a_comparison['follower_count']}")
                 print(f"Sorry, that's wrong. Final score: {player_score}")
                 should_continue = False
         else:
-            print(f"{a_comparison['follower_count']} > {b_comparison['follower_count']}")
             if a_comparison['follower_count'] > b_comparison['follower_count']:
+                print(f"{a_comparison['follower_count']} > {b_comparison['follower_count']}")
                 player_score += 1
                 print(f"You're right! Current score: {player_score}.")
             else:
+                print(f"{a_comparison['follower_count']} < {b_comparison['follower_count']}")
                 print(f"Sorry, that's wrong. Final score: {player_score}")
                 should_continue = False
         a_comparison = b_comparison
