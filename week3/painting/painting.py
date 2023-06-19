@@ -4,6 +4,7 @@ import random
 
 tim = t.Turtle()
 t.colormode(255)
+tim.hideturtle()
 
 rgb_colors = []
 colors = colorgram.extract('image.jpg', 30)
@@ -33,19 +34,17 @@ def random_color():
 
 
 # 10 x 10 dots - 20 circle - 50 for spaces
-t.screensize(400, 500)
+t.screensize(350, 350)
 tim.penup()
 tim.setposition(-350, -300)
 
 
 def draw_circle():
     for _ in range(10):
-        tim.color(random_color())
-        tim.pendown()
-        tim.dot(20)
+        tim.dot(20, random_color())
         tim.penup()
         tim.forward(50)
-        tim.pendown()
+
 
 
 def hirst_painting():
@@ -55,3 +54,6 @@ def hirst_painting():
         tim.setposition(-350, (tim.ycor() + 50))
 
 hirst_painting()
+
+screen = t.Screen()
+screen.exitonclick()
