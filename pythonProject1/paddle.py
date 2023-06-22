@@ -1,9 +1,5 @@
 from turtle import Turtle
 
-MOVE_DIST = 20
-UP = 90
-DOWN = 270
-
 
 class Paddle(Turtle):
 
@@ -19,9 +15,11 @@ class Paddle(Turtle):
         self.goto(position)
 
     def up(self):
-        new_y = self.ycor() + 20
-        self.goto(self.xcor(), new_y)
+        if self.ycor() < 280:
+            new_y = self.ycor() + 20
+            self.goto(self.xcor(), new_y)
 
     def down(self):
-        new_y = self.ycor() - 20
-        self.goto(self.xcor(), new_y)
+        if self.ycor() > -280:
+            new_y = self.ycor() - 20
+            self.goto(self.xcor(), new_y)
