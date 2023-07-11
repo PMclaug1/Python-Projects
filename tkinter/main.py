@@ -9,7 +9,7 @@ window.minsize(width=500, height=300)
 #font is a tuple, name of font, size and styling
 my_label = tkinter.Label(text="I am a label", font=("Arial,", 24, "bold"))
 #pack places and centers on screen - can set settings for size or expand etc
-my_label.pack()
+my_label.pack(side="left")
 
 # keeps window open. must be at the end of the file
 window.mainloop()
