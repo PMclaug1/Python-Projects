@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from random import choice, randint, shuffle
 import pyperclip
+import json
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -32,6 +33,12 @@ def save_info():
     website_save = website_input.get()
     email_save = email.get()
     password_save = password_entry.get()
+    new_data = {
+        website_save: {
+            "email": email_save,
+            "password": password_save
+        }
+                }
 
     if len(website_save) == 0 or len(password_save) == 0:
         messagebox.showinfo(title="Error", message="Invalid entry")
@@ -39,11 +46,23 @@ def save_info():
         is_ok = messagebox.askokcancel(title=website_save, message=f"Info Entered: \nEmail: {email_save}\nPassword: {password_save}\n OK to save?")
 
         if is_ok:
-            f = open("data.txt", "a")
-            f.write(f"{website_save} | {email_save} | {password_save}\n")
-            f.close()
-            website_input.delete(0, END)
-            password_entry.delete(0, END)
+            try:
+                with open("data.json", "w") as data_file:
+                    # read old data
+                    data = json.load(data_file)
+            except FileNotFoundError:
+                #file not found - create new file and write
+                with open("data.json", "w") as data_file:
+                    json.dump(data, data_file, indent=4)
+            else:
+                #update data w/ new data - if try block is successful
+                data.update(new_data)
+                with open("data.json", "w") as data_file:
+                    #save updated data
+                    json.dump(data, data_file, indent=4)
+            finally:
+                website_input.delete(0, END)
+                password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
