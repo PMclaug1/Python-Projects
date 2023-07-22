@@ -75,6 +75,7 @@ class LinkedList:
             self.tail = None
             return temp
 
+    def get(self):
 
 my_linked_list = LinkedList(2)
 my_linked_list.append(3)
