@@ -27,6 +27,22 @@ def create_password():
     print(f"Your password is: {password}")
     password_entry.insert(END, f"{password}")
     pyperclip.copy(password)
+# ---------------------------- SEARCH ------------------------------- #
+def search():
+    website_entry = website_input.get()
+    try:
+        with open("data.json") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showinfo(title="Error", message="No Data File Found")
+    else:
+        if website_entry in data:
+            email = data[website_entry]["email"]
+            password = data[website_entry]["password"]
+            messagebox.showinfo(title=website_entry, message=f"Email: {email}\nPassword: {password}")
+        else:
+            messagebox.showinfo(title="Error", message=f"No details exist for {website_entry}.")
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_info():
     print("saving info")
@@ -84,6 +100,9 @@ website_label.grid(row=1, column=0)
 website_input = Entry(width=35)
 website_input.grid(row=1, column=1, columnspan=2)
 website_input.focus()
+
+search_button = Button(text="Search", highlightthickness=0, command=search)
+search_button.grid(row=1, column=3)
 
 # email/username entry row
 email_label = Label(text="Email/Username:")
