@@ -83,6 +83,14 @@ class LinkedList:
             temp = temp.next
         return temp
 
+    def set_value(self, index, value):
+        temp = self.get(index)
+        # if temp is not none
+        if temp:
+            temp.value = value
+            return True
+        return False
+
 
 my_linked_list = LinkedList(2)
 my_linked_list.append(3)
@@ -95,4 +103,3 @@ print('Tail:', my_linked_list.tail.value)
 print('Length:', my_linked_list.length, '\n')
 print('Linked List:')
 my_linked_list.print_list()
-
