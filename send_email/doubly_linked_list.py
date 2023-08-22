@@ -44,58 +44,40 @@ class DoublyLinkedList:
         self.length -= 1
         return temp
 
-    ## WRITE PREPEND METHOD HERE ##
-    #                             #
-    #                             #
-    #                             #
-    #                             #
-    ###############################
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+        self.length += 1
+        return True
 
+        ## WRITE POP_FIRST METHOD HERE ##
+        #                               #
+        #                               #
+        #                               #
+        #                               #
+        #################################
 
-my_doubly_linked_list = DoublyLinkedList(2)
-my_doubly_linked_list.append(3)
+    my_doubly_linked_list = DoublyLinkedList(2)
+    my_doubly_linked_list.append(1)
 
-print('Before prepend():')
-print('----------------')
-print('Head:', my_doubly_linked_list.head.value)
-print('Tail:', my_doubly_linked_list.tail.value)
-print('Length:', my_doubly_linked_list.length, '\n')
-print('Doubly Linked List:')
-my_doubly_linked_list.print_list()
+    # (2) Items - Returns 2 Node
+    print(my_doubly_linked_list.pop_first().value)
+    # (1) Item -  Returns 1 Node
+    print(my_doubly_linked_list.pop_first().value)
+    # (0) Items - Returns None
+    print(my_doubly_linked_list.pop_first())
 
-my_doubly_linked_list.prepend(1)
+    """
+        EXPECTED OUTPUT:
+        ----------------
+        2
+        1
+        None
 
-print('\n\nAfter prepend():')
-print('---------------')
-print('Head:', my_doubly_linked_list.head.value)
-print('Tail:', my_doubly_linked_list.tail.value)
-print('Length:', my_doubly_linked_list.length, '\n')
-print('Doubly Linked List:')
-my_doubly_linked_list.print_list()
-
-"""
-    EXPECTED OUTPUT:
-
-    Before prepend():
-    ----------------
-    Head: 2
-    Tail: 3
-    Length: 2 
-
-    Doubly Linked List:
-    2
-    3
-
-
-    After prepend():
-    ---------------
-    Head: 1
-    Tail: 3
-    Length: 3 
-
-    Doubly Linked List:
-    1
-    2
-    3
-
-"""
+    """
