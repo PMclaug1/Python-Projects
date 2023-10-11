@@ -18,4 +18,5 @@ r.raise_for_status()
 weather_data = r.json()
 print(weather_data)
 
+# if weather ID is < 700 print that you need an umbrella
 
