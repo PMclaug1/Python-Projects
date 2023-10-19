@@ -4,6 +4,8 @@ from twilio.rest import Client
 from twilio.http.http_client import TwilioHttpClient
 import os
 
+# for sensitive data can export an environment variable to the env with os module and call it. API_KEY for example
+# API_KEY = os.environ.get("name of variable we created in env")
 API_KEY = "537b09cd56c297c0712f4aee4197f6e8"
 OWM_ENDPOINT = "https://api.openweathermap.org/data/2.5/weather"
 account_sid = 'ACe72d733d8d71bfbdf3f874fcb41f563d'
