@@ -1,7 +1,8 @@
 import requests
 import time
 from twilio.rest import Client
-
+from twilio.http.http_client import TwilioHttpClient
+import os
 
 API_KEY = "537b09cd56c297c0712f4aee4197f6e8"
 OWM_ENDPOINT = "https://api.openweathermap.org/data/2.5/weather"
@@ -28,7 +29,9 @@ if int(condition_code) > 700:
 else:
     will_rain = True
     if will_rain:
-        client = Client(account_sid, auth_token)
+        proxy_client = TwilioHttpClient()
+        proxy_client.session.proxies = {'https': os.environ['https_proxy']}
+        client = Client(account_sid, auth_token, http_client=proxy_client)
 
         message = client.messages.create(
             body="Bring an umbrella.",
