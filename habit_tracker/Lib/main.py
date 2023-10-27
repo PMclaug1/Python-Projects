@@ -9,6 +9,7 @@ pixela_params = {
     "notMinor": "yes"
 }
 
-response = requests.post(url=pixela_endpoint, json=pixela_params)
-print(response.text)
+# pixela set up - completed
+# response = requests.post(url=pixela_endpoint, json=pixela_params)
+# print(response.text)
 
