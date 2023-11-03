@@ -40,7 +40,7 @@ pixela_params = {
 graph_entry_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
 graph_params = {
-    "date": "20231028",
+    "date": "20231103",
     "quantity": "0.5",
 }
 
@@ -51,3 +51,4 @@ headers = {
 response = requests.post(url=graph_entry_endpoint, json=graph_params, headers=headers)
 print(response.text)
 
+#
