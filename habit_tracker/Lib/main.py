@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 USERNAME = "pmclaug1-github"
 TOKEN = "secret-password"
@@ -37,10 +38,13 @@ pixela_params = {
 
 # create pixela post
 
+# can put any date below, will format in the graph_params
+today = datetime.now()
+
 graph_entry_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
 graph_params = {
-    "date": "20231103",
+    "date": today.strftime("%Y%m%d"),
     "quantity": "0.5",
 }
 
@@ -51,4 +55,4 @@ headers = {
 response = requests.post(url=graph_entry_endpoint, json=graph_params, headers=headers)
 print(response.text)
 
-#
+
