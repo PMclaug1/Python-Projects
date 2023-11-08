@@ -40,12 +40,13 @@ pixela_params = {
 
 # can put any date below, will format in the graph_params
 today = datetime.now()
+print(today.strftime("%Y%m%d"))
 
 graph_entry_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
 graph_params = {
     "date": today.strftime("%Y%m%d"),
-    "quantity": "0.5",
+    "quantity": "0.25",
 }
 
 headers = {
@@ -55,4 +56,25 @@ headers = {
 response = requests.post(url=graph_entry_endpoint, json=graph_params, headers=headers)
 print(response.text)
 
+# update a pixel - put
 
+
+put_params = {
+    "quantity": "0.5"
+}
+
+# change put_entry_endpoint to reflect date to modify
+put_entry_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+
+
+put_response = requests.put(url=put_entry_endpoint, json=put_params, headers=headers)
+print(put_response.text)
+
+# delete a pixel
+
+# change delete_endpoint to reflect date to modify
+
+# delete_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+
+# delete_response = requests.delete(url=delete_entry_endpoint, headers=headers)
+# print(put_response.text)
