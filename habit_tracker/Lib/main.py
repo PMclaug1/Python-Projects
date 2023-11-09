@@ -46,7 +46,7 @@ graph_entry_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
 graph_params = {
     "date": today.strftime("%Y%m%d"),
-    "quantity": "0.25",
+    "quantity": "0.5",
 }
 
 headers = {
@@ -64,11 +64,11 @@ put_params = {
 }
 
 # change put_entry_endpoint to reflect date to modify
-put_entry_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
+# put_entry_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
 
 
-put_response = requests.put(url=put_entry_endpoint, json=put_params, headers=headers)
-print(put_response.text)
+# put_response = requests.put(url=put_entry_endpoint, json=put_params, headers=headers)
+# print(put_response.text)
 
 # delete a pixel
 
