@@ -46,7 +46,7 @@ graph_entry_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
 graph_params = {
     "date": today.strftime("%Y%m%d"),
-    "quantity": "0.5S",
+    "quantity": "0.25",
 }
 
 headers = {
