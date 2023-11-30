@@ -60,7 +60,7 @@ print(response.text)
 
 
 put_params = {
-    "quantity": "0.75"
+    "quantity": "0.5"
 }
 
 # change put_entry_endpoint to reflect date to modify
