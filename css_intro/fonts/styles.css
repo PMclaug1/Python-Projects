@@ -1,0 +1,30 @@
+html{
+    font-size: 30px;
+}
+
+body {
+    background-color: cornflowerblue;
+    color: white;
+    font-size: 18px;
+  }
+
+#color_p_id{
+    color: coral;
+}
+
+#font_size{
+    font-size: 2rem;
+}
+
+#font_weight{
+    font-weight: 900;
+}
+
+#font_family{
+    font-family: Caveat;
+    font-weight: 400;
+}
+
+#text_align{
+    text-align: right;
+}
