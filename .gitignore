@@ -54,3 +54,10 @@ pythonProject2/__pycache__/car_manager.cpython-311.pyc
 pythonProject1/__pycache__/scoreboard.cpython-311.pyc
 pythonProject/__pycache__/snake.cpython-311.pyc
 .gitignore
+html_intro/.idea/html_intro.iml
+html_intro/.idea/misc.xml
+html_intro/.idea/workspace.xml
+html_intro/.idea/inspectionProfiles/Project_Default.xml
+html_intro/.idea/vcs.xml
+html_intro/.idea/modules.xml
+html_intro/.idea/inspectionProfiles/profiles_settings.xml
